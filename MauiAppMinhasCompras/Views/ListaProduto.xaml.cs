@@ -9,7 +9,10 @@ public partial class ListaProduto : ContentPage
     public ListaProduto()
 	{
 		InitializeComponent();
-	}
+
+
+        lst_produtos.ItemsSource = lista;
+    }
 
     protected async override void OnAppearing()
     {
@@ -105,5 +108,5 @@ public partial class ListaProduto : ContentPage
         {
             DisplayAlert("Ops", ex.Message, "OK");
         }
-        }
     }
+}
