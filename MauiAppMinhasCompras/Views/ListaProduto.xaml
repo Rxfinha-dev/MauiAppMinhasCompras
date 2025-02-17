@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!-- Declaração da página ContentPage do .NET MAUI -->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppMinhasCompras.Views.ListaProduto"
              Title="ListaProduto">
+    <!-- Define o título da página -->
+
+    <!-- Barra de ferramentas superior com botões de ação -->
     <ContentPage.ToolbarItems>
+        <!-- Botão para somar os produtos -->
         <ToolbarItem Text="Somar" Clicked="ToolbarItem_Clicked_1" />
+        <!-- Botão para adicionar um novo produto -->
         <ToolbarItem Text="Adicionar" Clicked="ToolbarItem_Clicked" />
     </ContentPage.ToolbarItems>
 
+    <!-- Layout principal da página -->
     <VerticalStackLayout>
+        <!-- Barra de pesquisa para buscar produtos -->
         <SearchBar x:Name="txt_search" 
                    Placeholder="Busca de Produtos"
                    TextChanged="txt_search_TextChanged"/>
+
+        <!-- Lista de produtos cadastrados -->
         <ListView x:Name="lst_produtos" ItemSelected="lst_produtos_ItemSelected">
+            <!-- Cabeçalho da lista -->
             <ListView.Header>
                 <Grid ColumnDefinitions="*, *, *, *, *">
+                    <!-- Layout em colunas -->
                     <Label Grid.Column="0" Text="ID" />
                     <Label Grid.Column="1" Text="Descrição" />
                     <Label Grid.Column="2" Text="Preço" />
@@ -22,12 +34,17 @@
                     <Label Grid.Column="4" Text="Total" />
                 </Grid>
             </ListView.Header>
+
+            <!-- Template dos itens da lista -->
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+                        <!-- Menu de contexto para ações nos itens -->
                         <ViewCell.ContextActions>
                             <MenuItem Text="Remover" Clicked="MenuItem_Clicked" />
                         </ViewCell.ContextActions>
+
+                        <!-- Exibição dos dados do produto em colunas -->
                         <Grid ColumnDefinitions="*, *, *, *, *">
                             <Label Grid.Column="0" Text="{Binding Id}" />
                             <Label Grid.Column="1" Text="{Binding Descricao}" />
